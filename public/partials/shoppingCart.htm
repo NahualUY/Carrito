@@ -27,20 +27,7 @@
                 <tr ng-repeat="item in cart.items | orderBy:'name'">
                     <td>{{item.name}}</td>
                     <td class="tdCenter">
-                      <div class="input-append">
-                          <input
-                            class="span3 text-center" type="tel" 
-                            ng-model="item.quantity" 
-                            ng-change="cart.saveItems()" />
-                        <button 
-                            class="btn btn-success" type="button" 
-                            ng-disabled="item.quantity >= 1000"
-                            ng-click="cart.addItem(item.sku, item.name, item.price, +1)">+</button>
-                        <button 
-                            class="btn btn-inverse" type="button" 
-                            ng-disabled="item.quantity <= 1"
-                            ng-click="cart.addItem(item.sku, item.name, item.price, -1)">-</button>
-                      </div>
+                        {{item.quantity}}
                     </td>
                     <td class="tdRight">{{item.price * item.quantity | currency}}</td>
                     <td class="tdCenter" title="remove from cart">
