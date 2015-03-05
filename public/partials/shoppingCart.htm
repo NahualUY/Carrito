@@ -10,16 +10,16 @@
 
                 <!-- header -->
                 <tr class="well">
-                    <td><b>Item</b></td>
-                    <td class="tdCenter"><b>Quantity</b></td>
-                    <td class="tdRight"><b>Price</b></td>
+                    <td><b>Producto</b></td>
+                    <td class="tdCenter"><b>Cantidad</b></td>
+                    <td class="tdRight"><b>Precio</b></td>
                     <td />
                 </tr>
 
                 <!-- empty cart message -->
                 <tr ng-hide="cart.getTotalCount() > 0" >
                     <td class="tdCenter" colspan="4">
-                        Your cart is empty.
+                        Carrito vacio.
                     </td>
                 </tr>
 
@@ -28,8 +28,7 @@
                     <td>{{item.name}}</td>
                     <td class="tdCenter">
                       <div class="input-append">
-                        <!-- use type=tel instead of  to prevent spinners -->
-                        <input
+                          <input
                             class="span3 text-center" type="tel" 
                             ng-model="item.quantity" 
                             ng-change="cart.saveItems()" />
@@ -66,14 +65,14 @@
             <p class="text-info">
                 <button 
                     class="btn btn-block" 
-                    onclick="window.location.href='default.htm'">
-                    <i class="icon-chevron-left" /> back to store
+                    onclick="window.location.href='#/'">
+                    <i class="icon-chevron-left" /> volver
                 </button>
                 <button 
                     class="btn btn-block btn-danger" 
                     ng-click="cart.clearItems()" 
                     ng-disabled="cart.getTotalCount() < 1" >
-                    <i class="icon-trash icon-white" /> clear cart
+                    <i class="icon-trash icon-white" /> vaciar carrito
                 </button>
             </p>
         </div>
