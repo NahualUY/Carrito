@@ -11,3 +11,8 @@
 .table-nonfluid {
    width: auto;
 }
+
+.well {
+    background: white;
+    color: rgb(255,79,0);
+}
