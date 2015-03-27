@@ -13,4 +13,8 @@ function storeController($scope, $routeParams, DataService) {
     if ($routeParams.productSku != null) {
         $scope.product = $scope.store.getProduct($routeParams.productSku);
     }
+
+    $scope.mySearch = function(product){
+        return !$scope.search || product.name.indexOf($scope.search) > -1;
+    }
 }

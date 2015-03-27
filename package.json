@@ -1,0 +1,19 @@
+{
+  "name": "Nahual_Carrito",
+  "version": "0.0.0",
+  "description": "Nahual app carrito | Uruguay 2015",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NahualUY/Carrito.git"
+  },
+  "author": "nahual",
+  "license": "ISC",
+  "homepage": "https://github.com/NahualUY/Carrito",
+  "dependencies": {
+    "express": "^4.11.1"
+  }
+}

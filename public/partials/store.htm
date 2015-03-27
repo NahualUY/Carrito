@@ -11,7 +11,7 @@
             </a>
         </td>
     </tr>
-    <tr ng-repeat="product in store.products | orderBy:'name' | filter:search" >
+    <tr ng-repeat="product in store.products | orderBy:'name' | filter:mySearch" >
         <td class="tdCenter"><img ng-src="img/products/{{product.sku}}" alt="{{product.name}}" style="width: 70px;height: 70px;"></td>
         <td>
             <b>{{product.name}}</b><br />
@@ -21,7 +21,7 @@
             {{product.price | currency}}
         </td>
         <td class="tdCenter">
-            <a href="" ng-click="cart.addItem(product.sku, product.name, product.price, 1)">
+            <a href="" ng-dblclick="cart.addItem(product.sku, product.name, product.cart_price, product.increment)">
                 agregar al carrito
             </a>
         </td>
