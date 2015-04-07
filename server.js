@@ -1,6 +1,7 @@
 var PORT = 3000;
 
 var express = require('express');
+var products  = require('./routes/products');
 
 var app = express();
 
@@ -19,6 +20,8 @@ app.use(function (req, res, next) {
 
 //public directory
 app.use(express.static(__dirname + '/public'));
+
+app.use('/products', products);
 
 //start the server
 var server = app.listen(PORT, function () {
