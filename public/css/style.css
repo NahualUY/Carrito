@@ -9,10 +9,12 @@
   text-align: center;
 }
 .table-nonfluid {
-   width: auto;
+  width: auto;
 }
 
 .well {
-    background: white;
-    color: rgb(255,79,0);
+  background: white;
+  color: rgb(255,79,0);
 }
+
+.form-control.txt-small{ width: 60px; }
