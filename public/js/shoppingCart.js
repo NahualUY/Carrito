@@ -101,12 +101,9 @@ shoppingCart.prototype.getTotalCount = function (sku) {
 
 // clear the cart
 shoppingCart.prototype.clearItems = function () {
-    if(this.items.length == 0){
-        window.location = 'http://localhost:3131'
-    }
     this.items = [];
     this.saveItems();
-}
+};
 
 // utility methods
 shoppingCart.prototype.addFormFields = function (form, data) {

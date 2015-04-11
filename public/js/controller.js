@@ -26,7 +26,7 @@ function registrationController($http) {
     _this.submitForm = function(form){
         if(form.$valid){
             _this.processing = true;
-            $http.post('/clients', _this.cliente).success(function(response){
+            $http.post('clients', _this.cliente).success(function(response){
                 _this.cliente = null;
                 _this.completed = true;
             }).error(function(response){

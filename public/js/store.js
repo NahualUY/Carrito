@@ -1,7 +1,7 @@
 ﻿
 function store($http) {
     _this = this;
-    $http.get('/products').success(function(products){
+    $http.get('products').success(function(products){
         _this.products = [];
         for(var i = 0; i < products.length; i++){
             var prod = products[i];
