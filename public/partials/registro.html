@@ -1,51 +1,36 @@
 <h2>Registro de cliente</h2>
-
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-6">
-    <form>
+    <form novalidate ng-submit="ctrl.submitForm(registerForm)" name="registerForm" ng-hide="ctrl.completed">
       <div class="form-group">
         <label for="registro-fullname">Nombre completo</label>
-        <input type="text" class="form-control" id="registro-fullname" placeholder="Nombre completo">
+        <input type="text" class="form-control" id="registro-fullname" placeholder="Nombre completo" name="nombre" ng-required="true" ng-model="ctrl.cliente.nombre">
       </div>
       <div class="form-group">
         <label for="registro-email">E-mail</label>
-        <input type="email" class="form-control" id="registro-email" placeholder="Apellido">
+        <input type="email" class="form-control" id="registro-email" placeholder="Apellido" ng-required="true" ng-model="ctrl.cliente.email">
       </div>
-      <div class="form-group form-inline">
-        <p>
-          <label for="registro-email">Fecha de nacimiento</label>
-        </p>  
-        <div class="form-group">
-            <label for="exampleInputName2">Día</label>
-            <input type="text" class="form-control txt-small" id="registro-birthdate-day">
-        </div>
-        <div class="form-group">
-          <label for="registro-birthdate-month">Mes</label>
-          <input type="text" class="form-control txt-small" id="registro-birthdate-month">
-        </div>
-        <div class="form-group">
-          <label for="registro-birthdate-year">Año</label>
-          <input type="text" class="form-control txt-small" id="registro-birthdate-year">
-        </div>
+      <div class="form-group">
+        <label for="registro-birthdate">Fecha de nacimiento</label>
+        <input type="text" class="form-control" id="registro-birthdate" placeholder="Fecha de Nacimiento" ng-required="true" ng-model="ctrl.cliente.fecha_de_nacimiento">
       </div>
-      
       <div class="form-group">
         <label for="registro-address">Dirección</label>
-        <input type="text" class="form-control" id="registro-address" placeholder="Dirección">
+        <input type="text" class="form-control" id="registro-address" placeholder="Dirección" ng-required="true" ng-model="ctrl.cliente.direccion_calle">
       </div>
-
       <div class="form-group">
         <label for="registro-password">Contraseña</label>
-        <input type="password" class="form-control" id="registro-password" placeholder="********">
+        <input type="password" class="form-control" id="registro-password" placeholder="Contraseña"  ng-required="true" ng-model="ctrl.cliente.password">
       </div>
-
       <div class="form-group">
         <label for="registro-phone">Teléfono</label>
-        <input type="text" class="form-control" id="registro-phone" placeholder="Teléfono">
+        <input type="text" ng-pattern="/^[0-9]{9}$/" class="form-control" id="registro-phone" placeholder="Teléfono" ng-required="true" ng-model="ctrl.cliente.telefono" maxlength="9">
       </div>
-      
       <a class="btn btn-primary" href="/#store" role="button">Cancelar</a>
-      <button type="submit" class="btn btn-link">Registrarse</button>
+      <button type="submit" class="btn btn-link" ng-disabled="registerForm.$invalid">Registrarse</button>
     </form>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-md-6" ng-show="ctrl.completed">
+    Cuenta creada con éxito!
   </div>
 </div>

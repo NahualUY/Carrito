@@ -18,3 +18,21 @@ function storeController($scope, $routeParams, DataService) {
         return !$scope.search || product.name.indexOf($scope.search) > -1;
     }
 }
+
+function registrationController($http) {
+    var _this = this;
+    _this.completed = false;
+
+    _this.submitForm = function(form){
+        if(form.$valid){
+            _this.processing = true;
+            $http.post('/clients', _this.cliente).success(function(response){
+                _this.cliente = null;
+                _this.completed = true;
+            }).error(function(response){
+                _this.completed = true;
+                alert('ERROR!!!');
+            })
+        }
+    }
+}

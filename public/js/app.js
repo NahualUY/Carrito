@@ -13,17 +13,18 @@ var storeApp = angular.module('app', ['ngRoute']).
       }).
       when('/registro', {
         templateUrl: 'partials/registro.html',
-        controller: storeController
+        controller: registrationController,
+        controllerAs: 'ctrl'
       }).
       otherwise({
         redirectTo: '/store'
       });
 }]);
 
-storeApp.factory("DataService", function () {
+storeApp.factory("DataService", function ($http) {
 
     // create store
-    var myStore = new store();
+    var myStore = new store($http);
 
     // create shopping cart
     var myCart = new shoppingCart("app");

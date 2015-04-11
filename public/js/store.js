@@ -1,13 +1,14 @@
 ﻿
-function store() {
-    this.products = [
-        new product("banana.jpg", "Banana", "Description...", 12),
-	    new product("frutilla.jpg", "Frutilla", "Description...", 20),
-	    new product("hamburgesa.jpg", "Hamburguesa", "Description...", 50),
-	    new product("mango.jpg", "Mango", "Description...", 8),
-	    new product("manzana.jpg", "Manzana", "Description...", 17),
-	    new product("naranja.jpg", "Naranja", "Description...", 10, 10, 2)
-    ];
+function store($http) {
+    _this = this;
+    $http.get('/products').success(function(products){
+        _this.products = [];
+        for(var i = 0; i < products.length; i++){
+            var prod = products[i];
+            _this.products.push(new product(prod.imagen, prod.nombre, prod.descripcion, prod.precio, prod.precio,
+                1, prod.Unidad.singular))
+        }
+    });
 }
 store.prototype.getProduct = function (sku) {
     for (var i = 0; i < this.products.length; i++) {

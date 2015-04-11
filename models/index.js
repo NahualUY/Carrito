@@ -7,6 +7,8 @@ var config    = require(__dirname + '/../config/config.json');
 var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
 var db        = {};
 
+sequelize.sync();
+
 fs
     .readdirSync(__dirname)
     .filter(function(file) {

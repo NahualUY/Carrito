@@ -18,3 +18,7 @@
 }
 
 .form-control.txt-small{ width: 60px; }
+
+form .ng-invalid{
+  border: solid 1px red;
+}
