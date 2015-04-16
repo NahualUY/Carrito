@@ -16,6 +16,10 @@ var storeApp = angular.module('app', ['ngRoute']).
         controller: registrationController,
         controllerAs: 'ctrl'
       }).
+      when('/login', {
+        templateUrl: 'partials/login.html',
+        controllerAs: 'ctrl'
+      }).
       otherwise({
         redirectTo: '/store'
       });
