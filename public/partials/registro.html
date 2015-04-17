@@ -8,7 +8,7 @@
       </div>
       <div class="form-group">
         <label for="registro-email">E-mail</label>
-        <input type="email" class="form-control" id="registro-email" placeholder="Apellido" ng-required="true" ng-model="ctrl.cliente.email">
+        <input type="text" class="form-control" id="registro-email" placeholder="Email" ng-required="true" ng-model="ctrl.cliente.email">
       </div>
       <div class="form-group">
         <label for="registro-birthdate">Fecha de nacimiento</label>
@@ -24,9 +24,9 @@
       </div>
       <div class="form-group">
         <label for="registro-phone">Teléfono</label>
-        <input type="text" ng-pattern="/^[0-9]{9}$/" class="form-control" id="registro-phone" placeholder="Teléfono" ng-required="true" ng-model="ctrl.cliente.telefono" maxlength="9">
+        <input type="text" ng-pattern="/^[0-9]{8}$/" class="form-control" id="registro-phone" placeholder="Teléfono" ng-required="true" ng-model="ctrl.cliente.telefono" maxlength="9">
       </div>
-      <a class="btn btn-primary" href="/#store" role="button">Cancelar</a>
+      <a class="btn btn-primary" href="#/store" role="button">Cancelar</a>
       <button type="submit" class="btn btn-link" ng-disabled="registerForm.$invalid">Registrarse</button>
     </form>
   </div>
