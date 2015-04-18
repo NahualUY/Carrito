@@ -3,8 +3,12 @@
   <div class="col-xs-12 col-sm-6 col-md-6">
     <form novalidate ng-submit="ctrl.submitForm(registerForm)" name="registerForm" ng-hide="ctrl.completed">
       <div class="form-group">
-        <label for="registro-fullname">Nombre completo</label>
-        <input type="text" class="form-control" id="registro-fullname" placeholder="Nombre completo" name="nombre" ng-required="true" ng-model="ctrl.cliente.nombre">
+        <label for="nombre">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" ng-required="true" ng-model="ctrl.cliente.nombre">
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" ng-required="true" ng-model="ctrl.cliente.apellido">
       </div>
       <div class="form-group">
         <label for="registro-email">E-mail</label>
