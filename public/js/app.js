@@ -25,6 +25,10 @@ var storeApp = angular.module('app', ['ngRoute', 'ui.bootstrap']).
         templateUrl: 'partials/checkout.html',
         controller: storeController
       }).
+      when('/gracias', {
+        templateUrl: 'partials/gracias.html',
+        controller: storeController
+      }).
       otherwise({
         redirectTo: '/store'
       });
