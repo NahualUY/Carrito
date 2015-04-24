@@ -22,3 +22,10 @@
 form .ng-invalid{
   border: solid 1px red;
 }
+
+.product-img{
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    background-repeat: no-repeat;
+}
