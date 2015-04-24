@@ -32,7 +32,7 @@
                     <td class="tdRight">{{item.price * item.quantity | currency}}</td>
                     <td class="tdCenter" title="remove from cart">
                         <a href="" ng-click="cart.addItem(item.sku, item.name, item.price, -10000000)" >
-                            <i class="glyphicon glyphicon-remove" />
+                            <i class="glyphicon glyphicon-remove"></i>
                         </a>
                     </td>
                 </tr>
@@ -53,7 +53,7 @@
                 <button style="background: white"
                     class="btn btn-block" 
                     onclick="window.location.href='#/'">
-                    <i class="glyphicon glyphicon-chevron-left" /> volver
+                    <i class="glyphicon glyphicon-chevron-left"></i> volver
                 </button>
                 <button
                     class="btn btn-block btn-default"
@@ -63,7 +63,7 @@
                 <button
                         class="btn btn-block btn-danger"
                         ng-click="cart.clearItems()">
-                    <i class="glyphicon glyphicon-trash" /> vaciar carrito
+                    <i class="glyphicon glyphicon-trash"></i> vaciar carrito
                 </button>
             </p>
         </div>

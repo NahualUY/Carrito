@@ -16,7 +16,7 @@
       </div>
       <div class="form-group">
         <label for="registro-birthdate">Fecha de nacimiento</label>
-        <input type="text" class="form-control" id="registro-birthdate" placeholder="Fecha de Nacimiento" ng-required="true" ng-model="ctrl.cliente.fecha_de_nacimiento">
+        <input type="text" id="registro-birthdate" class="form-control" placeholder="Fecha de Nacimiento" datepicker-popup="dd/MM/yy" ng-model="ctrl.cliente.fecha_de_nacimiento" is-open="ctrl.opened" datepicker-options="ctrl.dateOptions" ng-required="true" close-text="Cerrar" current-text="Hoy" clear-text="Cerrar" fix-focus="ctrl.opened = true" />
       </div>
       <div class="form-group">
         <label for="registro-address">Dirección</label>

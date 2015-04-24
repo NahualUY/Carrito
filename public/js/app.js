@@ -1,6 +1,6 @@
 'use strict';
 
-var storeApp = angular.module('app', ['ngRoute']).
+var storeApp = angular.module('app', ['ngRoute', 'ui.bootstrap']).
   config(['$routeProvider', function($routeProvider) {
   $routeProvider.
       when('/store', {
@@ -18,6 +18,7 @@ var storeApp = angular.module('app', ['ngRoute']).
       }).
       when('/login', {
         templateUrl: 'partials/login.html',
+        controller: loginController,
         controllerAs: 'ctrl'
       }).
       otherwise({
@@ -39,3 +40,19 @@ storeApp.factory("DataService", function ($http) {
         cart: myCart
     };
 });
+
+storeApp.directive('fixFocus', ['$parse', function ($parse) {
+    return function (scope, element, attr) {
+        var fn = $parse(attr['fixFocus']);
+        element.bind('focus', function (event) {
+            if (!scope.$$phase) {
+                scope.$apply(function () {
+                    fn(scope, { $event: event });
+                });
+            }
+            else {
+                fn(scope, { $event: event });
+            }
+        });
+    }
+}]);
