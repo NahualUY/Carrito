@@ -19,11 +19,22 @@
         </td>
         <td class="tdRight">
             {{product.price | currency}} / {{product.unit}}
+            <div ng-show="product.discount != null" style="font-size: 0.8em;color: darkred;">
+                Promoción {{product.discount}}% de descuento!
+            </div>
         </td>
         <td class="tdCenter">
-            <a href="" ng-click="cart.addItem(product.sku, product.name, product.cart_price, product.increment)">
+            <a href="" ng-click="cart.addItem(product.sku, product.name, product.cart_price, product.discount, product.increment)" ng-show="product.min_age == null || (loggedInUser != null && loggedInUser.edad > product.min_age)">
                 agregar al carrito
             </a>
+            <div ng-hide="product.min_age == null || (loggedInUser != null && loggedInUser.edad > product.min_age)" style="font-size: 0.8em">
+                <div ng-show="loggedInUser == null">
+                    Producto para clientes con {{product.min_age}} años o más.<br/>Ingrese a su cuenta para comprar
+                </div>
+                <div ng-hide="loggedInUser == null">
+                    Producto para clientes con {{product.min_age}} años o más.
+                </div>
+            </div>
         </td>
     </tr>
     <tr class="well">

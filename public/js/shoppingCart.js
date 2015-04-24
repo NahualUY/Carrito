@@ -47,7 +47,7 @@ shoppingCart.prototype.saveItems = function () {
 }
 
 // adds an item to the cart
-shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
+shoppingCart.prototype.addItem = function (sku, name, price, discount, quantity) {
     quantity = this.toNumber(quantity);
     if (quantity != 0) {
 
@@ -66,6 +66,9 @@ shoppingCart.prototype.addItem = function (sku, name, price, quantity) {
 
         // new item, add now
         if (!found) {
+            if(discount != null){
+                price = price * (100 - discount) / 100;
+            }
             var item = new cartItem(sku, name, price, quantity);
             this.items.push(item);
         }
