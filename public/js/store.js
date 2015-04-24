@@ -6,7 +6,7 @@ function store($http) {
         for(var i = 0; i < products.length; i++){
             var prod = products[i];
             _this.products.push(new product(prod.imagen, prod.nombre, prod.descripcion, prod.precio, prod.precio,
-                1, prod.Unidad.singular))
+                1, prod.Unidad.singular, prod.edad_minima, prod.descuento))
         }
     });
 }
