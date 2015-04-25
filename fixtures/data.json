@@ -1,0 +1,17 @@
+[
+    {
+      "model": "Cliente",
+      "data": {
+        "nombre": "Carlos",
+        "apellido": "Gutierrez",
+        "fecha_de_nacimiento": "1986-07-08 03:00:00",
+        "direccion_calle": "Yi",
+        "direccion_numero": "1234",
+        "direccion_ciudad": "Montevideo",
+        "direccion_pais": "Uruguay",
+        "email": "cgutierrez@gmail.com",
+        "password": "nahual",
+        "telefono": "099123123"
+      }
+    }
+]

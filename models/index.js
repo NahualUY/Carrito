@@ -7,7 +7,19 @@ var config    = require(__dirname + '/../config/config.json');
 var sequelize = new Sequelize(config.db.database, config.db.username, config.db.password, config.db);
 var db        = {};
 
+console.log(__dirname );
+
+var sequelize_fixtures = require('sequelize-fixtures'),
+    models = {
+      Cliente: require('./cliente')
+    };
+
 sequelize.sync();
+
+sequelize_fixtures.loadFile(__dirname + '/../fixtures/data.json', models).then(function(){
+  console.log("Fixtures loaded!");
+});
+
 
 fs
     .readdirSync(__dirname)
