@@ -19,6 +19,7 @@
     "fs": "0.0.2",
     "mysql": "^2.6.1",
     "path": "^0.11.14",
-    "sequelize": "^2.0.5"
+    "sequelize": "^2.0.5",
+    "sequelize-fixtures": "^0.4.1"
   }
 }
