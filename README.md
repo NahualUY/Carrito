@@ -1,27 +1,24 @@
-# Carrito
+# Carrito Nahual
 
+## Instalación
 
-## Instalation
+### Dependencias Node (Server side)
 
-### Node dependencies (Server side)
+    npm install
 
-Running:
+### Dependencias Bower (Client side)
 
-```
-npm install
-```
+    cd public
+    bower install
 
-### Bower dependencies (Client side)
+### Estructura de base de datos
 
-Running:
+    node rebuild_tables.js
 
-```
-cd public
-bower install
-```
+### Datos de prueba
 
-## Start server
+    node load_fixtures.js
 
-```
-node server.js
-```
+### Iniciar servidor
+
+    node server.js
