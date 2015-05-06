@@ -1,172 +1,176 @@
-
 <h2>Realizar pago</h2>
+<form novalidate ng-submit="ctrl.submitForm(payForm)" name="payForm" class="form-horizontal">
+    <div class="row">
+        <div class="medios-pago col-md-6">
 
-<div class="row">
-  <div class="medios-pago col-md-6">
+            <h3>Elija un método de pago</h3>
 
-      <h3>Elija un método de pago</h3>
-      
-      <p>
-        <label>
-          <input type="radio" name="opt-medio-de-pago" id="opt-efectivo" value="efectivo" checked>
-           <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> 
-           Efectivo
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="radio" name="opt-medio-de-pago" id="opt-tarjeta" value="tarjeta">
-          <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> 
-          Tarjeta
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="radio" name="opt-medio-de-pago" id="opt-transferencia" value="transferencia" >
-          <span class="glyphicon glyphicon-send" aria-hidden="true"></span> 
-          Transferencia bancaria
-        </label>
-      </p>
+            <p>
+                <label>
+                    <input type="radio" name="medio_de_pago" id="opt-efectivo" value="efectivo" ng-model="ctrl.pago.medio_de_pago" ng-click="ctrl.tarjeta = null;ctrl.transferencia = null;">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    Efectivo
+                </label>
+            </p>
 
-  </div>
-  <div class="col-md-6">
-    <h3>Detalles de la transacción</h3>
-    <ul>
-      <li ng-repeat="item in cart.items | orderBy:'name'">
-          <span>{{item.name}}</span> &times; <span>{{item.quantity}}</span> 
-          (<span>{{item.price * item.quantity | currency}}</span>)
-          
-      </li>
-    </ul>
-    <p>
-      Cantidad de productos: <strong>{{cart.getTotalCount()}}</strong>
-    </p>
-    <p>
-      Importe Total <strong>{{cart.getTotalPrice() | currency}}</strong>
-    </p>
-  </div>
+            <p>
+                <label>
+                    <input type="radio" name="medio_de_pago" id="opt-tarjeta" value="tarjeta" ng-model="ctrl.pago.medio_de_pago" ng-click="ctrl.tarjeta = null;ctrl.transferencia = null;">
+                    <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                    Tarjeta
+                </label>
+            </p>
 
-</div>
+            <p>
+                <label>
+                    <input type="radio" name="medio_de_pago" id="opt-transferencia" value="transferencia" ng-model="ctrl.pago.medio_de_pago" ng-click="ctrl.tarjeta = null;ctrl.transferencia = null;">
+                    <span class="glyphicon glyphicon-send" aria-hidden="true"></span>
+                    Transferencia bancaria
+                </label>
+            </p>
+
+        </div>
+        <div class="col-md-6">
+            <h3>Detalles de la transacción</h3>
+            <ul>
+                <li ng-repeat="item in cart.items | orderBy:'name'">
+                    <span>{{item.name}}</span> &times; <span>{{item.quantity}}</span>
+                    (<span>{{item.price * item.quantity | currency}}</span>)
+
+                </li>
+            </ul>
+            <p>
+                Cantidad de productos: <strong>{{cart.getTotalCount()}}</strong>
+            </p>
+
+            <p>
+                Importe Total <strong>{{cart.getTotalPrice() | currency}}</strong>
+            </p>
+        </div>
+
+    </div>
 
 
-  <!-- Opciones de pago -->
+    <!-- Opciones de pago -->
 
-  <div id="pago-tarjeta" class="col-xs-12">
-    <form class="form-horizontal" role="form">
+    <div id="pago-tarjeta" class="col-xs-12" ng-if="ctrl.pago.medio_de_pago == 'tarjeta'">
         <fieldset>
-          <legend>Pago con tarjeta de crédito</legend>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="card-holder-name">Nombre</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" 
-                     placeholder="Nombre y apellido">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="card-number">Número de tarjeta</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="card-number" id="card-number" 
-                     placeholder="**** **** **** ****">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="expiry-month">Fecha de vencimiento</label>
-            <div class="col-sm-9">
-              <div class="row">
-                <div class="col-xs-3">
-                  <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                    <option>Mes</option>
-                    <option value="01">Ene (01)</option>
-                    <option value="02">Feb (02)</option>
-                    <option value="03">Mar (03)</option>
-                    <option value="04">Abr (04)</option>
-                    <option value="05">May (05)</option>
-                    <option value="06">Jun (06)</option>
-                    <option value="07">Jul (07)</option>
-                    <option value="08">Ago (08)</option>
-                    <option value="09">Set (09)</option>
-                    <option value="10">Oct (10)</option>
-                    <option value="11">Nov (11)</option>
-                    <option value="12">Dec (12)</option>
-                  </select>
+            <legend>Pago con tarjeta de crédito</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-holder-name">Nombre</label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="card-holder-name" id="card-holder-name"
+                           placeholder="Nombre y apellido" ng-model="ctrl.tarjeta.nombre" ng-pattern="/^[a-zA-Z -]+$/" ng-required="true">
                 </div>
-                <div class="col-xs-3">
-                  <select class="form-control" name="expiry-year">
-                    <option>Año</option>
-                    <option value="13">2013</option>
-                    <option value="14">2014</option>
-                    <option value="15">2015</option>
-                    <option value="16">2016</option>
-                    <option value="17">2017</option>
-                    <option value="18">2018</option>
-                    <option value="19">2019</option>
-                    <option value="20">2020</option>
-                    <option value="21">2021</option>
-                    <option value="22">2022</option>
-                    <option value="23">2023</option>
-                  </select>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-number">Número de tarjeta</label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="card-number" id="card-number"
+                           placeholder="**** **** **** ****" ng-model="ctrl.tarjeta.tarjeta" ng-pattern="/^[0-9]{16}$/" maxlength="16" ng-required="true">
                 </div>
-              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="cvv">Código de seguridad</label>
-            <div class="col-sm-3">
-              <input type="text" class="form-control" name="cvv" id="cvv" placeholder="***">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="expiry-month">Fecha de vencimiento</label>
+
+                <div class="col-sm-9">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <select class="form-control col-sm-2" name="expiry-month" id="expiry-month"  ng-model="ctrl.tarjeta.mes" ng-required="true">
+                                <option value="">Mes</option>
+                                <option value="01">Ene (01)</option>
+                                <option value="02">Feb (02)</option>
+                                <option value="03">Mar (03)</option>
+                                <option value="04">Abr (04)</option>
+                                <option value="05">May (05)</option>
+                                <option value="06">Jun (06)</option>
+                                <option value="07">Jul (07)</option>
+                                <option value="08">Ago (08)</option>
+                                <option value="09">Set (09)</option>
+                                <option value="10">Oct (10)</option>
+                                <option value="11">Nov (11)</option>
+                                <option value="12">Dec (12)</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select class="form-control" name="expiry-year" ng-model="ctrl.tarjeta.anio" ng-required="true">
+                                <option value="">Año</option>
+                                <option value="15">2015</option>
+                                <option value="16">2016</option>
+                                <option value="17">2017</option>
+                                <option value="18">2018</option>
+                                <option value="19">2019</option>
+                                <option value="20">2020</option>
+                                <option value="21">2021</option>
+                                <option value="22">2022</option>
+                                <option value="23">2023</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="cvv">Código de seguridad</label>
+
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="cvv" id="cvv" placeholder="***" ng-model="ctrl.tarjeta.cvv" ng-required="true" maxlength="3" ng-pattern="/^[0-9]{3}$/">
+                </div>
+            </div>
         </fieldset>
-      </form>
-  </div>
+    </div>
 
-  <!-- Pago con transferencia bancaria -->
+    <!-- Pago con transferencia bancaria -->
 
-  <div id="pago-transferencia" class="col-xs-12">
-    <form class="form-horizontal" role="form">
+    <div id="pago-transferencia" class="col-xs-12" ng-if="ctrl.pago.medio_de_pago == 'transferencia'">
         <fieldset>
-          <legend>Transferencia bancaria</legend>
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="card-holder-name">
-              Banco
-            </label>
-            <div class="col-sm-6">
-              <select class="form-control">
-                <option>Scotiabank</option>
-                <option>BROU</option>
-                <option>Santander</option>
-                <option>Itaú</option>
-              </select>
-            </div>
+            <legend>Transferencia bancaria</legend>
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-holder-name">
+                    Banco
+                </label>
+
+                <div class="col-sm-6">
+                    <select class="form-control" ng-model="ctrl.transferencia.banco" ng-required="true">
+                        <option value="">Banco</option>
+                        <option>Scotiabank</option>
+                        <option>BROU</option>
+                        <option>Santander</option>
+                        <option>Itaú</option>
+                    </select>
+                </div>
             </div>
 
-          <div class="form-group">
-            <label class="col-sm-3 control-label" for="card-holder-name">
-              Número de cuenta
-            </label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="nro-cuenta" id="nro-cuenta" 
-                     placeholder="Número de cuenta">
+            <div class="form-group">
+                <label class="col-sm-3 control-label" for="card-holder-name">
+                    Número de cuenta
+                </label>
+
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="nro-cuenta" id="nro-cuenta"
+                           placeholder="Número de cuenta" ng-model="ctrl.transferencia.cuenta" ng-required="true" ng-pattern="/^[0-9-]{5}[0-9-]*$/">
+                </div>
             </div>
-          </div> 
-          
+
         </fieldset>
-      </form>
-  </div>
+    </div>
 
-  <div class="col-xs-12">
-    <!-- buttons -->
-    <p class="text-info">
-        <button style="background: white"
-            class="btn btn-block" 
-            onclick="window.location.href='#/cart'">
-            <i class="glyphicon glyphicon-chevron-left"></i> volver
-        </button>
-        <button
-            class="btn btn-block btn-primary"
-            onclick="window.location.href='#/gracias'">
-            Confirmar
-        </button>
-    </p>
-  </div>
+    <div class="col-xs-12">
+        <!-- buttons -->
+        <p class="text-info">
+            <button style="background: white"
+                    class="btn btn-block"
+                    onclick="window.location.href='#/cart'">
+                <i class="glyphicon glyphicon-chevron-left"></i> volver
+            </button>
+            <button
+                    class="btn btn-block btn-primary"
+                    onclick="window.location.href='#/gracias'" ng-disabled="payForm.$invalid">
+                Confirmar
+            </button>
+        </p>
+    </div>
 
-</div>
+    </div>
+</form>

@@ -23,7 +23,8 @@ var storeApp = angular.module('app', ['ngRoute', 'ui.bootstrap']).
       }).
       when('/checkout', {
         templateUrl: 'partials/checkout.html',
-        controller: storeController
+        controller: checkoutController,
+        controllerAs: 'ctrl'
       }).
       when('/gracias', {
         templateUrl: 'partials/gracias.html',

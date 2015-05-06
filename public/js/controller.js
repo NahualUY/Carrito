@@ -60,6 +60,15 @@ function loginController($http, $scope, $location) {
     }
 }
 
+function checkoutController($scope, DataService){
+    var _this = this;
+    $scope.cart = DataService.cart;
+
+    _this.submitForm = function(payForm){
+        //todo: guardar la orden y vaciar el carrito
+    }
+}
+
 function mainController($scope, $location) {
     var _this = this;
     $scope.loggedInUser = null;
