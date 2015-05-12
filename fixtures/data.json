@@ -13,5 +13,19 @@
         "password": "nahual",
         "telefono": "099123123"
       }
+    },
+    {
+        "model" : "Unidad",
+        "data" : {
+            "singular" : "Kg.",
+            "plural" : "Kgs."
+        }
+    },
+    {
+        "model" : "Unidad",
+        "data" : {
+            "singular" : "unidad",
+            "plural" : "unidades"
+        }
     }
 ]
