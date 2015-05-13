@@ -17,6 +17,7 @@
     {
         "model" : "Unidad",
         "data" : {
+            "id" : 1,
             "singular" : "Kg.",
             "plural" : "Kgs."
         }
@@ -24,8 +25,117 @@
     {
         "model" : "Unidad",
         "data" : {
-            "singular" : "unidad",
-            "plural" : "unidades"
+            "id" : 2,
+            "singular" : "Unidad",
+            "plural" : "Unidades"
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Banana",
+            "descripcion": "Banana Ecuador",
+            "precio": 62,
+            "imagen": "banana.jpg",
+            "edad_minima": null,
+            "descuento": 5,
+            "Unidad" : 1
+        }
+    },
+    {   
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Frutilla",
+            "descripcion": "Bien roja y muy dulce",
+            "precio": 40,
+            "imagen": "frutilla.jpg",
+            "Unidad": 1,
+            "edad_minima": null,
+            "descuento": "15"
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Hamburguesa",
+            "descripcion": "Hamburguesa con huevo frito, panceta, jamón, queso, lechuga y tomate",
+            "precio": 200,
+            "imagen": "hamburguesa.jpg",
+            "Unidad": 2,
+            "edad_minima": null,
+            "descuento": null
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Mango",
+            "descripcion": "Jugoso",
+            "precio": 20,
+            "imagen": "mango.jpg",
+            "Unidad": 1,
+            "edad_minima": 10,
+            "descuento": 10
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Manzana",
+            "descripcion": "Manzana Arenosa",
+            "precio": 40,
+            "imagen": "manzana.jpg",
+            "Unidad": 1,
+            "edad_minima": null,
+            "descuento": null
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Naranja",
+            "descripcion": "Naranja para jugo",
+            "precio": 34,
+            "imagen": "naranja.jpg",
+            "Unidad": 1,
+            "edad_minima": null,
+            "descuento": null
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Cerveza",
+            "descripcion": "Cerveza Pilsen Gold bien fria",
+            "precio": 40,
+            "imagen": "cerveza.jpg",
+            "Unidad": 2,
+            "edad_minima": 18,
+            "descuento": 20
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Vino",
+            "descripcion": "Tinto",
+            "precio": 120,
+            "imagen": "vino.jpg",
+            "Unidad": 2,
+            "edad_minima": 18,
+            "descuento": 25
+        }
+    },
+    {
+        "model" : "Producto",
+        "data" : {
+            "nombre": "Banana",
+            "descripcion": "Banana Ecuador",
+            "precio": 62,
+            "imagen": "banana.jpg",
+            "Unidad": 1,
+            "edad_minima": null,
+            "descuento": 5
         }
     }
 ]
