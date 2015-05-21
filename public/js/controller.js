@@ -22,11 +22,10 @@ function storeController($scope, $routeParams, DataService) {
 function registrationController($http) {
     var _this = this;
     _this.completed = false;
-    _this.dateOptions = {
-        formatYear: 'yy',
-        startingDay: 1
-    };
-    _this.opened = false;
+
+    var today = new Date();
+    _this.min_date = moment(new Date(today.getFullYear() - 100, today.getMonth(), today.getDay())).format('YYYY-MM-DD');
+    _this.max_date = moment(new Date(today.getFullYear() - 12, today.getMonth(), today.getDay())).format('YYYY-MM-DD');
 
     _this.submitForm = function(form){
         if(form.$valid){
@@ -36,7 +35,7 @@ function registrationController($http) {
                 _this.completed = true;
             }).error(function(response){
                 _this.completed = false;
-                alert('ERROR!!!');
+                alert('El mail ingresado ya fue usado por otro usuario');
             })
         }
     };

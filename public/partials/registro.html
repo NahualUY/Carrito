@@ -4,23 +4,23 @@
     <form novalidate ng-submit="ctrl.submitForm(registerForm)" name="registerForm" ng-hide="ctrl.completed">
       <div class="form-group">
         <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" ng-required="true" ng-model="ctrl.cliente.nombre">
+        <input type="text" ng-pattern="/^[a-zA-Z \.]+$/" class="form-control" id="nombre" placeholder="Nombre" name="nombre" ng-required="true" ng-model="ctrl.cliente.nombre" maxlength="30">
       </div>
       <div class="form-group">
         <label for="apellido">Apellido</label>
-        <input type="text" class="form-control" id="apellido" placeholder="Apellido" name="apellido" ng-required="true" ng-model="ctrl.cliente.apellido">
+        <input type="text" ng-pattern="/^[a-zA-Z \.]+$/" class="form-control" id="apellido" placeholder="Apellido" name="apellido" ng-required="true" ng-model="ctrl.cliente.apellido" maxlength="30">
       </div>
       <div class="form-group">
         <label for="registro-email">E-mail</label>
-        <input type="text" class="form-control" id="registro-email" placeholder="Email" ng-required="true" ng-model="ctrl.cliente.email">
+        <input type="email" class="form-control" id="registro-email" placeholder="Email" ng-required="true" ng-model="ctrl.cliente.email">
       </div>
       <div class="form-group">
         <label for="registro-birthdate">Fecha de nacimiento</label>
-        <input type="text" id="registro-birthdate" class="form-control" placeholder="Fecha de Nacimiento" datepicker-popup="dd/MM/yy" ng-model="ctrl.cliente.fecha_de_nacimiento" is-open="ctrl.opened" datepicker-options="ctrl.dateOptions" ng-required="true" close-text="Cerrar" current-text="Hoy" clear-text="Cerrar" fix-focus="ctrl.opened = true" />
+        <input type="date" min="{{ctrl.min_date}}" max="{{ctrl.max_date}}" id="registro-birthdate" class="form-control" placeholder="Fecha de Nacimiento" ng-required="true" ng-model="ctrl.cliente.fecha_de_nacimiento" />
       </div>
       <div class="form-group">
         <label for="registro-address">Dirección</label>
-        <input type="text" class="form-control" id="registro-address" placeholder="Dirección" ng-required="true" ng-model="ctrl.cliente.direccion_calle">
+        <input type="text" ng-pattern="/^[a-zA-Z0-9 \.]+$/" class="form-control" id="registro-address" placeholder="Dirección" ng-required="true" ng-model="ctrl.cliente.direccion_calle">
       </div>
       <div class="form-group">
         <label for="registro-password">Contraseña</label>
@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <label for="registro-phone">Teléfono</label>
-        <input type="text" ng-pattern="/^[0-9]{8}$/" class="form-control" id="registro-phone" placeholder="Teléfono" ng-required="true" ng-model="ctrl.cliente.telefono" maxlength="9">
+        <input type="text" ng-pattern="/^((0[0-9]{8})|([1-9][0-9]{7}))$/" class="form-control" id="registro-phone" placeholder="Teléfono" ng-required="true" ng-model="ctrl.cliente.telefono" maxlength="9">
       </div>
       <a class="btn btn-primary" href="#/store" role="button">Cancelar</a>
       <button type="submit" class="btn btn-link" ng-disabled="registerForm.$invalid">Registrarse</button>

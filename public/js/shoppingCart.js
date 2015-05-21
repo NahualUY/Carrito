@@ -56,12 +56,10 @@ shoppingCart.prototype.addItem = function (sku, name, price, discount, quantity)
         for (var i = 0; i < this.items.length && !found; i++) {
             var item = this.items[i];
             if (item.sku == sku) {
-                found = true;
-                if(item.quantity + quantity < 5) {
-                    item.quantity = this.toNumber(item.quantity + quantity);
-                    if (item.quantity <= 0) {
-                        this.items.splice(i, 1);
-                    }
+            found = true;
+                item.quantity = this.toNumber(item.quantity + quantity);
+                if (item.quantity <= 0) {
+                    this.items.splice(i, 1);
                 }
             }
         }
