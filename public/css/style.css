@@ -47,4 +47,7 @@ form .ng-invalid{
 }
 
 
-
+@media screen and (min-width: 560px){
+  .top-button { float: right; }
+}
+  

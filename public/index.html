@@ -37,7 +37,7 @@
                     <img src="img/logo.png" height="60" width="60" alt="logo"/>
                 </a>
                 Carrito Nahual
-                <div class="pull-right" ng-hide="loggedInUser">
+                <div class="top-button" ng-hide="loggedInUser">
                     <a class="btn btn-default btn-sm" href="#/registro" role="button">
                         Registrarse
                     </a>
@@ -45,7 +45,7 @@
                         Acceder
                     </a>
                 </div>
-                <div class="pull-right" ng-show="loggedInUser">
+                <div class="top-button" ng-show="loggedInUser">
                     Bienvenido {{loggedInUser.nombre}} {{loggedInUser.apellido}}!
                     <a class="btn btn-default btn-sm" href="#" role="button" ng-click="ctrl.logout()">
                         Salir
