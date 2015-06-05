@@ -27,8 +27,8 @@ form .ng-invalid{
 
 .product-img{
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   background-repeat: no-repeat;
   margin: 0 auto;
 }
