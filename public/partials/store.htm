@@ -2,7 +2,7 @@
     Buscar: <input ng-model="search">
 </p>
 
-<table class="table">
+<table class="table table-products">
     <tr class="well">
         <td class="tdRight" colspan="4" >
             <a href="#/cart" title="go to shopping cart" ng-disabled="cart.getTotalCount() < 1">
@@ -13,7 +13,7 @@
     </tr>
     <tr ng-repeat="product in store.products | orderBy:'name' | filter:mySearch" >
         <td class="tdCenter">
-          <div class="product-img" style="height: 70px; width: 70px; background-image: url('img/products/{{product.sku}}')" ></div>
+          <div class="product-img" style="background-image: url('img/products/{{product.sku}}')" ></div>
         </td>
         <td>
             <b>{{product.name}}</b><br />

@@ -3,7 +3,9 @@
  *
  */
 .table td.tdRight {
-  text-align: right;
+  @media screen and (min-width: 560px){
+    text-align: right;
+  } 
 }
 .table td.tdCenter {
   text-align: center;
@@ -24,8 +26,25 @@ form .ng-invalid{
 }
 
 .product-img{
-    background-size: cover;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 560px){
+  .product-img{
     width: 70px;
     height: 70px;
-    background-repeat: no-repeat;
+  }
 }
+
+.table-products td{ display: block; }
+
+@media screen and (min-width: 560px){
+  .table-products td{ display: table-cell; }
+}
+
+
+
