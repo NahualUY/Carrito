@@ -49,7 +49,9 @@ shoppingCart.prototype.saveItems = function () {
 // adds an item to the cart
 shoppingCart.prototype.addItem = function (sku, name, price, discount, quantity) {
     quantity = this.toNumber(quantity);
+    console.log(quantity)
     if (quantity != 0) {
+      if (this.getTotalCount() + quantity <= 10) {
 
         // update quantity for existing item
         var found = false;
@@ -75,6 +77,10 @@ shoppingCart.prototype.addItem = function (sku, name, price, discount, quantity)
 
         // save changes
         this.saveItems();
+      }
+      else{
+        $('#modal-carrito-lleno').modal('show');
+      }
     }
 }
 
