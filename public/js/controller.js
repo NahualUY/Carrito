@@ -15,7 +15,7 @@ function storeController($scope, $routeParams, DataService) {
     }
 
     $scope.mySearch = function(product){
-        return !$scope.search || product.name.indexOf($scope.search) > -1;
+        return !$scope.search || product.name.toLowerCase().indexOf($scope.search.toLowerCase()) > -1;
     }
 }
 
